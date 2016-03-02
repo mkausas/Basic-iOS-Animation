@@ -17,6 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="macklemore" translatesAutoresizingMaskIntoConstraints="NO" id="dde-et-d9o">
+                                <rect key="frame" x="168" y="20" width="39" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="ZTN-fK-bLz"/>
+                                    <constraint firstAttribute="width" constant="39" id="ZoE-fk-BVu"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnu-lu-hNf">
                                 <rect key="frame" x="157" y="617" width="61" height="30"/>
                                 <state key="normal" title="Animate!"/>
@@ -24,12 +31,13 @@
                                     <action selector="onAnimateButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uOe-nx-x1a"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="macklemore" translatesAutoresizingMaskIntoConstraints="NO" id="dde-et-d9o">
-                                <rect key="frame" x="168" y="20" width="39" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="ZTN-fK-bLz"/>
-                                    <constraint firstAttribute="width" constant="39" id="ZoE-fk-BVu"/>
-                                </constraints>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="griffin" translatesAutoresizingMaskIntoConstraints="NO" id="sOu-Ou-hsQ">
+                                <rect key="frame" x="20" y="247" width="161" height="124"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="54D-0v-GEb" appends="YES" id="TLz-Be-qlr"/>
+                                    <outletCollection property="gestureRecognizers" destination="Bwq-Wr-5tJ" appends="YES" id="Wjg-nq-dQN"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -42,15 +50,27 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="griffinImageView" destination="sOu-Ou-hsQ" id="IUQ-hp-dMx"/>
                         <outlet property="macklemoreImageView" destination="dde-et-d9o" id="AZF-JP-DCM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="54D-0v-GEb">
+                    <connections>
+                        <action selector="onGriffinDrag:" destination="BYZ-38-t0r" id="lQ8-Om-Wo2"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pinchGestureRecognizer id="Bwq-Wr-5tJ">
+                    <connections>
+                        <action selector="onGriffinPinch:" destination="BYZ-38-t0r" id="2dK-uY-ADx"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="303.5" y="386.5"/>
         </scene>
     </scenes>
     <resources>
+        <image name="griffin" width="482" height="380"/>
         <image name="macklemore" width="195" height="248"/>
     </resources>
 </document>
